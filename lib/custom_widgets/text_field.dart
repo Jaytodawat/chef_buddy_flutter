@@ -1,3 +1,4 @@
+import 'package:chef_buddy/constants.dart';
 import 'package:flutter/material.dart';
 
 class ReusableTextField extends StatelessWidget {
@@ -11,8 +12,8 @@ class ReusableTextField extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 5),
       child: TextField(
-        style: const TextStyle(
-          color: Colors.white,
+        style:  TextStyle(
+          color: kWhite,
         ),
         keyboardType: TextInputType.text,
         textInputAction: TextInputAction.next,
@@ -22,15 +23,15 @@ class ReusableTextField extends StatelessWidget {
           border: const OutlineInputBorder(
             borderRadius: BorderRadius.all(Radius.circular(10.0)),
           ),
-          enabledBorder: const OutlineInputBorder(
-            borderSide: BorderSide(color: Color(0xFF1D1E33)),
-            borderRadius: BorderRadius.all(Radius.circular(10.0)),
+          enabledBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: kFaintBlue),
+            borderRadius: const BorderRadius.all(Radius.circular(10.0)),
           ),
-          focusedBorder: const OutlineInputBorder(
-            borderSide: BorderSide(color: Colors.white60),
-            borderRadius: BorderRadius.all(Radius.circular(10.0)),
+          focusedBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: kFaintWhite,),
+            borderRadius: const BorderRadius.all(Radius.circular(10.0)),
           ),
-          fillColor: const Color(0xFF1D1E33),
+          fillColor: kFaintBlue,
           filled: true,
           prefixIcon: icon,
           labelText: labelText,

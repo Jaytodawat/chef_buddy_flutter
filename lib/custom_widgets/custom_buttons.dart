@@ -1,3 +1,4 @@
+import 'package:chef_buddy/constants.dart';
 import 'package:flutter/material.dart';
 
 class RoundedButton extends StatelessWidget {
@@ -12,14 +13,14 @@ class RoundedButton extends StatelessWidget {
         shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(30)
         ),
-        backgroundColor: const Color(0xFF0df5e3),
+        backgroundColor: kBlueAccent,
       ),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 10),
         child: Text(text,
-          style: const TextStyle(
+          style:  TextStyle(
             fontSize: 15,
-            color: Color(0xFF111328),
+            color: kDarkBlue,
           ),
         ),
       ),

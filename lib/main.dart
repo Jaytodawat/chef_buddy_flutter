@@ -1,5 +1,6 @@
 import 'package:chef_buddy/screens/login_page.dart';
 import 'package:chef_buddy/screens/signup_page.dart';
+import 'package:chef_buddy/screens/splash_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -18,11 +19,7 @@ class ChefBuddy extends StatelessWidget {
 
       ),
       debugShowCheckedModeBanner: false,
-      home: const Scaffold(
-        // backgroundColor: Color(0xFF111328),
-        body: SafeArea(child: SignupPage(),),
-        
-      ),
+      home:const SplashScreen(),
     );
   }
 }
