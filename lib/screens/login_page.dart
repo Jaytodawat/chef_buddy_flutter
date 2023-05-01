@@ -46,7 +46,7 @@ class _LogInPageState extends State<LogInPage> {
                 ),
                 const SizedBox(height: 10,),
                 Text('Please sign in to continue',
-                  style: kLogInSubTextStyle,
+                  style: kSubTextStyle,
                 ),
                 const SizedBox(height: 20,),
                 const ReusableTextField(labelText: 'Email ID', obsecureText: false, icon: Icon(Icons.email_outlined),),
@@ -63,19 +63,19 @@ class _LogInPageState extends State<LogInPage> {
                   child: TextButton(
                     onPressed: null,
                     child: Text('Forget Password?',
-                      style: kLogInSubTextStyle.copyWith(color: const Color(0xFF0df5e3)),),
+                      style: kSubTextStyle.copyWith(color: const Color(0xFF0df5e3)),),
                   ),
                 ),
                 const SizedBox(height: 80,),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text("Don't have an account?", style: kLogInSubTextStyle,),
+                    Text("Don't have an account?", style: kSubTextStyle,),
                     TextButton(
                         onPressed: (){
                           Navigator.push(context, MaterialPageRoute(builder: (context) => const SignupPage()));
                         },
-                        child: Text('Sign up', style: kLogInSubTextStyle.copyWith(color: const Color(0xFF0df5e3)),))
+                        child: Text('Sign up', style: kSubTextStyle.copyWith(color: const Color(0xFF0df5e3)),))
                   ],
                 ),
               ],

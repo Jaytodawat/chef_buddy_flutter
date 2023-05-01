@@ -43,3 +43,40 @@ class TextClick extends StatelessWidget {
   }
 }
 
+
+class RoundedSubButton extends StatelessWidget {
+  const RoundedSubButton({super.key, required this.onPressed, required this.text});
+  final String text;
+  final void Function()? onPressed;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 5),
+      child: TextButton(
+        onPressed: onPressed,
+        style: TextButton.styleFrom(
+          side: BorderSide(
+            color: Colors.grey.shade200,
+          ),
+          shape: RoundedRectangleBorder(
+
+            borderRadius: BorderRadius.circular(30),
+          ),
+          // backgroundColor: Colors.grey.shade100,
+          // shadowColor: Colors.black,
+      ),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 5),
+          child: Text(text,
+            style:  TextStyle(
+              fontSize: 12,
+              color: Colors.grey.shade900,
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
