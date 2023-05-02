@@ -12,8 +12,8 @@ class SignupPage extends StatefulWidget {
 }
 
 class _SignupPageState extends State<SignupPage> {
-  List<String> lst = ['Maharashtra', 'Gujrat', 'Goa', 'UP', 'MP', 'Mizoram', 'Nagaland', 'Kerala'];
-  String? dropdownValue = null;
+  List<String> lst = ['Maharashtra', 'Gujarat', 'Goa', 'UP', 'MP', 'Mizoram', 'Nagaland', 'Kerala'];
+  String? dropdownValue;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,7 +35,7 @@ class _SignupPageState extends State<SignupPage> {
                   const SizedBox(height: 20,),
                   const Text('Create Account',
                     style: TextStyle(
-                      color: Colors.white,
+                      color: Colors.black,
                       fontSize: 26,
                       fontWeight: FontWeight.w500
                     ),
@@ -57,7 +57,7 @@ class _SignupPageState extends State<SignupPage> {
                     child: DropdownButtonFormField<String>(
                         alignment: Alignment.bottomCenter,
                         isExpanded: true,
-                        dropdownColor: kFaintBlue,
+                        dropdownColor: Colors.white,
                         value: dropdownValue,
                         decoration:  InputDecoration(
                           prefixIcon: const Icon(Icons.location_on_outlined),
@@ -66,18 +66,18 @@ class _SignupPageState extends State<SignupPage> {
                             borderRadius: BorderRadius.all(Radius.circular(10.0)),
                           ),
                           enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: kFaintBlue),
+                            borderSide: BorderSide(color: Colors.grey),
                             borderRadius: const BorderRadius.all(Radius.circular(10.0)),
                           ),
                           focusedBorder:  OutlineInputBorder(
-                            borderSide: BorderSide(color:kFaintWhite,),
+                            borderSide: BorderSide(color:Colors.black,),
                             borderRadius: const BorderRadius.all(Radius.circular(10.0)),
                           ),
-                          fillColor: kFaintBlue,
+                          fillColor: Colors.white,
                           filled: true,
                           labelText: 'State',
                           labelStyle: const TextStyle(
-                              color: Colors.white60,
+                              color: Colors.grey,
                               fontSize: 13
                           ),
                         ),
@@ -86,7 +86,7 @@ class _SignupPageState extends State<SignupPage> {
                             value: value,
                             child: Text(
                             value,
-                            style: TextStyle(color: kWhite),
+                            style: TextStyle(color: Colors.black),
                             ),
                             );
                           }).toList(),
@@ -111,7 +111,7 @@ class _SignupPageState extends State<SignupPage> {
                           onPressed: (){
                             Navigator.pop(context);
                           },
-                          child: Text('Log In', style: kSubTextStyle.copyWith(color: const Color(0xFF0df5e3)),))
+                          child: Text('Log In', style: kSubTextStyle.copyWith(color: Colors.blue),))
                     ],
                   ),
                 ],

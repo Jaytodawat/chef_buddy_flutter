@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-TextStyle kSubTextStyle = const TextStyle(
-  color: Colors.grey,
+TextStyle kSubTextStyle =  TextStyle(
+  color: Colors.grey.shade900,
   fontSize: 12,
 );
 

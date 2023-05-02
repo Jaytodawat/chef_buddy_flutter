@@ -2,6 +2,7 @@ import 'package:chef_buddy/constants.dart';
 import 'package:chef_buddy/custom_widgets/custom_buttons.dart';
 import 'package:chef_buddy/custom_widgets/icon_box.dart';
 import 'package:chef_buddy/custom_widgets/recipe_card.dart';
+import 'package:chef_buddy/screens/bottom_modal_sheet.dart';
 import 'package:flutter/material.dart';
 import 'package:chef_buddy/recipe.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
@@ -13,26 +14,30 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  @override
+  @override 
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
         bottomNavigationBar: CurvedNavigationBar(
           color: Colors.white,
           backgroundColor: Colors.black,
-          items: const [
-            IconButton(
+          items:  [
+            const IconButton(
               onPressed: null,
               icon:Icon(Icons.home_filled, color: Colors.black, ),
             ),
             IconButton(
-              onPressed: null,
-              icon: Icon(
+              onPressed: (){
+                showModalBottomSheet(context: context, builder: (context){
+                    return const BottomModalSheet();
+                });
+              },
+              icon: const Icon(
                 Icons.search_rounded,
                 color: Colors.black,
               ),
             ),
-            IconButton(
+            const IconButton(
               onPressed: null,
               icon: Icon(
                 Icons.bookmark_add,
@@ -52,7 +57,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     IconBox(onPressed: null, icon: Icons.menu, boxColor: kWhite, iconColor: Colors.black,),
-                    IconBox(onPressed: null, icon: Icons.notifications, boxColor: kFaintGreen, iconColor: kWhite,),
+                    IconBox(onPressed: null, icon: Icons.notifications, boxColor: Colors.black, iconColor: kWhite,),
                   ],
                 ),
 

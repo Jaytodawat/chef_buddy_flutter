@@ -14,6 +14,8 @@ class LogInPage extends StatefulWidget {
 }
 
 class _LogInPageState extends State<LogInPage> {
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,7 +41,7 @@ class _LogInPageState extends State<LogInPage> {
                 const SizedBox(height: 15,),
                 const Text('LogIn',
                   style: TextStyle(
-                      color: Colors.white,
+                      color: Colors.black,
                       fontSize: 26,
                       fontWeight: FontWeight.w500
                   ),
@@ -49,8 +51,10 @@ class _LogInPageState extends State<LogInPage> {
                   style: kSubTextStyle,
                 ),
                 const SizedBox(height: 20,),
-                const ReusableTextField(labelText: 'Email ID', obsecureText: false, icon: Icon(Icons.email_outlined),),
-                const ReusableTextField(labelText: 'Password', obsecureText: true, icon: Icon(Icons.lock_open_rounded),),
+
+                ReusableTextField(controller:emailController, labelText: 'Email ID', obsecureText: false, icon: const Icon(Icons.email_outlined),),
+                ReusableTextField(controller:passwordController, labelText: 'Password', obsecureText: true, icon: const Icon(Icons.lock_open_rounded),),
+
                 const SizedBox(height: 30,),
                 Center(
                   child: RoundedButton(
@@ -63,7 +67,7 @@ class _LogInPageState extends State<LogInPage> {
                   child: TextButton(
                     onPressed: null,
                     child: Text('Forget Password?',
-                      style: kSubTextStyle.copyWith(color: const Color(0xFF0df5e3)),),
+                      style: kSubTextStyle.copyWith(color: Colors.grey.shade800),),
                   ),
                 ),
                 const SizedBox(height: 80,),
@@ -75,7 +79,7 @@ class _LogInPageState extends State<LogInPage> {
                         onPressed: (){
                           Navigator.push(context, MaterialPageRoute(builder: (context) => const SignupPage()));
                         },
-                        child: Text('Sign up', style: kSubTextStyle.copyWith(color: const Color(0xFF0df5e3)),))
+                        child: Text('Sign up', style: kSubTextStyle.copyWith(color: Colors.blue),))
                   ],
                 ),
               ],
