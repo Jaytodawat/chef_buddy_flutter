@@ -1,6 +1,7 @@
 import 'package:chef_buddy/screens/signup_page.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
+import 'package:get/get.dart';
 import 'package:chef_buddy/screens/login_page.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -16,7 +17,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     Timer( const Duration(seconds: 2), (){
-      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const LogInPage(),));
+      Get.off(LogInPage());
     });
   }
   @override

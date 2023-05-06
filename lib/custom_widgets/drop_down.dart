@@ -1,24 +1,27 @@
 import 'package:flutter/material.dart';
 
 class DropDownMenu extends StatefulWidget {
-  const DropDownMenu({Key? key}) : super(key: key);
-
+  const DropDownMenu({super.key,  required this.data, required this.controller});
+  final List<String> data;
+  final TextEditingController controller;
   @override
   State<DropDownMenu> createState() => _DropDownMenuState();
 }
 
 class _DropDownMenuState extends State<DropDownMenu> {
-  List<String> lst = ['Maharashtra', 'Gujarat', 'Goa', 'UP', 'MP', 'Mizoram', 'Nagaland', 'Kerala'];
-  String? dropDownValue;
+  // List<String> lst = ['Maharashtra', 'Gujarat', 'Goa', 'UP', 'MP', 'Mizoram', 'Nagaland', 'Kerala'];
+  // String? dropDownValue;
+
   @override
   Widget build(BuildContext context) {
+    widget.controller.text = widget.data[0];
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 5),
       child: DropdownButtonFormField<String>(
         alignment: Alignment.bottomCenter,
         isExpanded: true,
         dropdownColor: Colors.white,
-        value: dropDownValue,
+        value: widget.controller.text,
         decoration:  const InputDecoration(
           prefixIcon: Icon(Icons.location_on_outlined),
           contentPadding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
@@ -41,7 +44,7 @@ class _DropDownMenuState extends State<DropDownMenu> {
               fontSize: 13
           ),
         ),
-        items: lst.map((String value){
+        items: widget.data.map((String value){
           return DropdownMenuItem<String>(
             value: value,
             child: Text(
@@ -52,7 +55,7 @@ class _DropDownMenuState extends State<DropDownMenu> {
         }).toList(),
         onChanged:(String? newValue) {
           setState(() {
-            dropDownValue = newValue!;
+            widget.controller.text = newValue!;
           });
         },
       ),

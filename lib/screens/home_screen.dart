@@ -1,3 +1,5 @@
+import 'package:chef_buddy/auth_controller.dart';
+import 'package:get/get.dart';
 import 'package:chef_buddy/constants.dart';
 import 'package:chef_buddy/custom_widgets/custom_buttons.dart';
 import 'package:chef_buddy/custom_widgets/icon_box.dart';
@@ -6,15 +8,11 @@ import 'package:chef_buddy/screens/bottom_modal_sheet.dart';
 import 'package:flutter/material.dart';
 import 'package:chef_buddy/recipe.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+class HomeScreen extends StatelessWidget {
+  HomeScreen({Key? key}) : super(key: key);
+  final AuthController authController = Get.find();
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
-}
-
-class _HomeScreenState extends State<HomeScreen> {
-  @override 
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
@@ -37,9 +35,11 @@ class _HomeScreenState extends State<HomeScreen> {
                 color: Colors.black,
               ),
             ),
-            const IconButton(
-              onPressed: null,
-              icon: Icon(
+            IconButton(
+              onPressed: (){
+                authController.logout();
+              },
+              icon: const Icon(
                 Icons.bookmark_add,
                 color: Colors.black,
               ),

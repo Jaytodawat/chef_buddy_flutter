@@ -2,18 +2,20 @@ import 'package:chef_buddy/constants.dart';
 import 'package:flutter/material.dart';
 
 class ReusableTextField extends StatelessWidget {
-  const ReusableTextField({super.key, required this.labelText, required this.obsecureText, this.icon});
+  const ReusableTextField({super.key, this.controller, required this.labelText, required this.obsecureText, this.icon});
   final String labelText;
   final bool obsecureText;
   final Icon? icon;
+  final TextEditingController? controller;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 5),
       child: TextField(
-        style:  TextStyle(
-          color: kWhite,
+        controller: controller,
+        style:  const TextStyle(
+          color: Colors.black,
         ),
         keyboardType: TextInputType.text,
         textInputAction: TextInputAction.next,
@@ -23,20 +25,20 @@ class ReusableTextField extends StatelessWidget {
           border: const OutlineInputBorder(
             borderRadius: BorderRadius.all(Radius.circular(10.0)),
           ),
-          enabledBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: kFaintBlue),
-            borderRadius: const BorderRadius.all(Radius.circular(10.0)),
+          enabledBorder: const OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.grey),
+            borderRadius: BorderRadius.all(Radius.circular(10.0)),
           ),
-          focusedBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: kFaintWhite,),
-            borderRadius: const BorderRadius.all(Radius.circular(10.0)),
+          focusedBorder: const OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.black,),
+            borderRadius: BorderRadius.all(Radius.circular(10.0)),
           ),
-          fillColor: kFaintBlue,
+          fillColor: kFaintWhite,
           filled: true,
           prefixIcon: icon,
           labelText: labelText,
           labelStyle: const TextStyle(
-              color: Colors.white60,
+              color: Colors.grey,
               fontSize: 13
           ),
         ),
