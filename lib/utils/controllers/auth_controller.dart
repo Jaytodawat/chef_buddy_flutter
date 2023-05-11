@@ -3,6 +3,7 @@ import 'package:chef_buddy/screens/home_screen.dart';
 import 'package:chef_buddy/screens/login_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
+import "package:cloud_firestore/cloud_firestore.dart";
 
 class AuthController extends GetxController{
     // static AuthController instance = Get.find();
@@ -25,13 +26,21 @@ class AuthController extends GetxController{
       }
 
     }
-    void register(String email, String password) async {
+    void register(String email, String password, String name, String state, String mobile) async {
+      CollectionReference reference = FirebaseFirestore.instance.collection('profile');
+      Map<String, String> userData = {
+        "name" : name,
+        "email" : email,
+        "state" : state,
+        "mobile" : mobile
+      };
       showSpinner = true;
       update();
       try {
         await auth.createUserWithEmailAndPassword(
             email: email, password: password);
-        Get.offAll(()=> HomeScreen());
+        reference.add(userData);
+        Get.offAll(()=> LogInPage());
       } catch (e) {
         Get.snackbar("About User", "User Message",
             snackPosition: SnackPosition.BOTTOM,

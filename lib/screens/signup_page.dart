@@ -1,4 +1,4 @@
-import 'package:chef_buddy/auth_controller.dart';
+import 'package:chef_buddy/utils/controllers/auth_controller.dart';
 import 'package:chef_buddy/custom_widgets/custom_buttons.dart';
 import 'package:chef_buddy/custom_widgets/drop_down.dart';
 import 'package:chef_buddy/custom_widgets/text_field.dart';
@@ -104,7 +104,7 @@ class SignupPage extends StatelessWidget {
                         Center(child:
                           RoundedButton(
                               onPressed: (){
-                                authController.register(emailController.text.trim(), passwordController.text.trim());
+                                authController.register(emailController.text.trim(), passwordController.text.trim(), nameController.text.trim(), stateController.text.trim(), mobileController.text.trim());
                                 },
                                 text: 'Register'),
                         ),

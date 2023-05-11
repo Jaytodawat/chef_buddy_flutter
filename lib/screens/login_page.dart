@@ -1,4 +1,4 @@
-import 'package:chef_buddy/auth_controller.dart';
+import 'package:chef_buddy/utils/controllers/auth_controller.dart';
 import 'package:chef_buddy/screens/home_screen.dart';
 import 'package:chef_buddy/screens/signup_page.dart';
 import 'package:flutter/material.dart';
@@ -15,7 +15,7 @@ class LogInPage extends StatelessWidget {
   final TextEditingController emailController = TextEditingController();
 
   final TextEditingController passwordController = TextEditingController();
-  final AuthController authController = Get.put(AuthController());
+  final AuthController authController = Get.find();
 
   @override
   Widget build(BuildContext context) {

@@ -1,8 +1,6 @@
-import 'package:chef_buddy/auth_controller.dart';
+import 'package:chef_buddy/utils/controllers/auth_controller.dart';
 import 'package:chef_buddy/constants.dart';
-import 'package:chef_buddy/screens/home_screen.dart';
-import 'package:chef_buddy/screens/login_page.dart';
-import 'package:chef_buddy/screens/signup_page.dart';
+import 'package:chef_buddy/utils/controllers/home_controller.dart';
 import 'package:chef_buddy/screens/splash_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -11,14 +9,16 @@ import 'package:get/get.dart';
 Future<void> main() async{
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp().then((value) => Get.put(AuthController()));
-  runApp(const ChefBuddy());
+  runApp(ChefBuddy());
 }
 
 class ChefBuddy extends StatelessWidget {
-  const ChefBuddy({Key? key}) : super(key: key);
+  ChefBuddy({Key? key}) : super(key: key);
+  final HomeController homeController = Get.put(HomeController());
 
   @override
   Widget build(BuildContext context) {
+    print(homeController.recipes.length);
     return GetMaterialApp(
       theme: ThemeData().copyWith(
         scaffoldBackgroundColor:kWhite,
@@ -26,7 +26,7 @@ class ChefBuddy extends StatelessWidget {
 
       ),
       debugShowCheckedModeBanner: false,
-      home: LogInPage(),
+      home: const SplashScreen(),
     );
   }
 }
