@@ -1,3 +1,4 @@
+import 'package:chef_buddy/screens/recipe_screen.dart';
 import 'package:chef_buddy/utils/controllers/home_controller.dart';
 import 'package:flutter/material.dart';
 import '../constants.dart';
@@ -74,7 +75,9 @@ class RecipeCard extends StatelessWidget {
                       width: 10,
                     ),
                     IconBox(
-                      onPressed: null,
+                      onPressed: (){
+                        Get.to(const RecipePage());
+                      },
                       icon: Icons.arrow_forward,
                       boxColor: Colors.black,
                       iconColor: Colors.white,

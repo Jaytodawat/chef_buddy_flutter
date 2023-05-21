@@ -1,3 +1,4 @@
+import 'package:chef_buddy/screens/profile_page.dart';
 import 'package:chef_buddy/utils/controllers/auth_controller.dart';
 import 'package:chef_buddy/utils/controllers/home_controller.dart';
 import 'package:chef_buddy/screens/search_screen.dart';
@@ -61,8 +62,7 @@ class HomeScreen extends StatelessWidget {
                       authController.logout();
                     },
                     icon: const Icon(
-                      Icons.bookmark_add,
-                      color: Colors.black,
+                      Icons.logout_outlined,
                     ),
                   )
                 ],
@@ -83,10 +83,11 @@ class HomeScreen extends StatelessWidget {
                           iconColor: Colors.black,
                         ),
                         IconBox(
-                          onPressed: null,
-                          icon: Icons.notifications,
-                          boxColor: Colors.black,
-                          iconColor: kWhite,
+                          onPressed: (){
+                            Get.to(const ProfilePage());
+                          },
+                          icon: Icons.person,
+                          iconColor: Colors.black,
                         ),
                       ],
                     ),
